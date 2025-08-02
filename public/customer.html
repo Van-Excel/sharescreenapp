@@ -11,7 +11,8 @@
   <script>
     console.log("Customer JS running");
 
-    const ws = new WebSocket("ws://" + location.host);
+    const protocol = location.protocol === "https:" ? "wss://" : "ws://";
+    const ws = new WebSocket(protocol + location.host);
     const params = new URLSearchParams(window.location.search);
     const sessionId = params.get("session");
 
